@@ -7,6 +7,9 @@ project(raylib-project VERSION 0.1.0 LANGUAGES C CXX)
 # Copy all the required libs and main executable to bin/
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin/)
 
+# Build Raylib
+add_subdirectory(vendors/raylib/)
+
 # Collect all the source and header files
 file(GLOB ALL_SOURCE_FILES src/*.cpp)
 file(GLOB ALL_HEADER_FILES include/*.hpp)
@@ -21,4 +24,8 @@ set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
 target_include_directories(
     ${PROJECT_NAME}
     PRIVATE ${PROJECT_SOURCE_DIR}/include/
+    PRIVATE ${PROJECT_SOURCE_DIR}/vendors/raylib/src/
 )
+
+# Link required libraries (add sfml-audio and sfml-network if needed)
+target_link_libraries(${PROJECT_NAME} raylib)
