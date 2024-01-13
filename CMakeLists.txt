@@ -27,5 +27,5 @@ target_include_directories(
     PRIVATE ${PROJECT_SOURCE_DIR}/vendors/raylib/src/
 )
 
-# Link required libraries (add sfml-audio and sfml-network if needed)
+# Link required libraries
 target_link_libraries(${PROJECT_NAME} raylib)
